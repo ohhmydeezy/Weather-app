@@ -1,0 +1,12 @@
+.weather-row {
+    display: flex;
+    justify-content: end;
+    flex-wrap: wrap;
+}
+
+#today {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: -10px;
+}
