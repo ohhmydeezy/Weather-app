@@ -3,6 +3,7 @@ const apiUrl = 'https://api.openweathermap.org/'
 const inputGroup = $("#search-button");
 const iconUrl = "http://openweathermap.org/img/wn/";
 const fiveDayBox = document.getElementById("five-day-box");
+const clearButton = $("#clear-button");
 
 
 const saveSearch = cityName => {
@@ -84,34 +85,33 @@ function displayNextFiveDays(forecastData) {
     nextFiveDays.forEach(day => {
         const formattedDate = formatDate(day.dt);
         let weatherIcon = `${iconUrl}${day.weather[0].icon}.png`;
-        let weather = day.weather[0].main + " - " + day.weather[0].description;
+        let weather = day.weather[0].main;
         const temp = convertTemp(day.temp.day);
         const feelsLike = convertTemp(day.feels_like.day);
         const humidity = day.humidity;
         fiveDayBox.innerHTML += `
-        <div class="col-lg-12 pb-3"> 
-        <section id="today" class="mt-3" role="region" aria-live="polite">
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-2">
-                        <img src="${weatherIcon}" class="img-fluid rounded-start" id="today-icon" alt="Weather Icon">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">${formattedDate}</h5>
-                            <p class="card-text" id="today-weather">Weather: ${weather}</p>
-                            <p class="card-text" id="today-temp">Temperature: ${temp}°C</p>
-                            <p class="card-text" id="today-feels-like">Feels like: ${feelsLike}°C</p>
-                            <p class="card-text" id="today-humidity">Humidity: ${humidity}%</p>
+        <div class="col-lg-2 pb-3"> <!-- Set the width of each weather card -->
+            <section id="today" class="mt-3 h-100" role="region" aria-live="polite">
+                <div class="card h-100"> <!-- Add h-100 class to make the card full height -->
+                    <div class="row g-0 h-100">
+                        <div class="col-4 col-md-4 d-flex align-items-center justify-content-center"> <!-- Adjusted the width to col-md-4 -->
+                            <img src="${weatherIcon}" class="img-fluid rounded-start" id="today-icon" alt="Weather Icon">
+                        </div>
+                        <div class="col-8 col-md-8 d-flex align-items-center"> <!-- Adjusted the width to col-md-8 -->
+                            <div class="card-body">
+                                <h5 class="card-title">${formattedDate}</h5>
+                                <p class="card-text" id="today-weather">Weather: ${weather}</p>
+                                <p class="card-text" id="today-temp">Temperature: ${temp}°C</p>
+                                <p class="card-text" id="today-feels-like">Feels like: ${feelsLike}°C</p>
+                                <p class="card-text" id="today-humidity">Humidity: ${humidity}%</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </div>
-        `
-    });
-
+            </section>
+        </div>
+    `
+    });    
 };
 
 // event listener for search button
@@ -134,3 +134,8 @@ $("#history").on("click", "button", async function (event) {
     displayNextFiveDays(forecastData);
 });
 
+clearButton.on("click", function (event) {
+    event.preventDefault();
+    localStorage.clear();
+    location.reload();
+});

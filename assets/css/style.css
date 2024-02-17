@@ -1,21 +1,5 @@
-.weather-row {
-    display: flex;
-    display: -ms-inline-grid;
-    flex-wrap: wrap;
-    margin: 5px;
-}
-
-.weather-card {
-    flex: 1 0 200px;
-    margin: 5px;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-}
-
 header {
-    background-color: #b7b7b7;
+    background-color: #000000;
     text-align: center;
     justify-content: center;
     background-size: cover;
@@ -23,12 +7,13 @@ header {
 }
 
 body {
-    background-color: #ececec;
+    background-color: #fbdede;
 }
 
 .container {
-    padding: 10px;
-    margin: 10px;
+    padding: 5px;
+    margin: 5px;
+
 }
 
 #history {
@@ -36,4 +21,12 @@ body {
     justify-content: flex-start;
     flex-wrap: wrap;
     margin: 5px;
+}
+
+#five-day-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 5px;
+    padding: 5px;
 }
