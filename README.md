@@ -59,4 +59,4 @@ License:
     See License in Repo
 
 
-Deployed link: 
+Deployed link: https://ohhmydeezy.github.io/Weather-app/
