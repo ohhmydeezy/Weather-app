@@ -1,12 +1,39 @@
 .weather-row {
     display: flex;
-    justify-content: end;
+    display: -ms-inline-grid;
     flex-wrap: wrap;
+    margin: 5px;
 }
 
-#today {
-    display: flex;
+.weather-card {
+    flex: 1 0 200px;
+    margin: 5px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+header {
+    background-color: #b7b7b7;
+    text-align: center;
     justify-content: center;
+    background-size: cover;
+    
+}
+
+body {
+    background-color: #ececec;
+}
+
+.container {
+    padding: 10px;
+    margin: 10px;
+}
+
+#history {
+    display: flex;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    padding-left: -10px;
+    margin: 5px;
 }
